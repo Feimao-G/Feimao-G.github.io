@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OCS网课助手 | 肥猫趣记</title><meta name="author" content="FeiMao"><meta name="copyright" content="FeiMao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OCS网课助手：专注于帮助大学生从网课中释放出来。让自己的时间把握在自己的手中。  安装脚本管理器（本人更喜欢脚本猫一些，页面简洁） 脚本猫：https:&#x2F;&#x2F;docs.scriptcat.org Tampermonkey：https:&#x2F;&#x2F;www.tampermonkey.net&#x2F;  脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似） 点击添加到Edge浏览器（如果没有Edge浏览器，可以点击右侧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCS网课助手">
+<meta property="og:url" content="https://feimao-g.github.io/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/index.html">
+<meta property="og:site_name" content="肥猫趣记">
+<meta property="og:description" content="OCS网课助手：专注于帮助大学生从网课中释放出来。让自己的时间把握在自己的手中。  安装脚本管理器（本人更喜欢脚本猫一些，页面简洁） 脚本猫：https:&#x2F;&#x2F;docs.scriptcat.org Tampermonkey：https:&#x2F;&#x2F;www.tampermonkey.net&#x2F;  脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似） 点击添加到Edge浏览器（如果没有Edge浏览器，可以点击右侧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png">
+<meta property="article:published_time" content="2024-12-10T01:08:39.708Z">
+<meta property="article:modified_time" content="2024-12-10T02:30:39.938Z">
+<meta property="article:author" content="FeiMao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png"><link rel="shortcut icon" href="https://s2.loli.net/2024/11/19/PLI2iAMYZXw7J69.png"><link rel="canonical" href="https://feimao-g.github.io/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OCS网课助手',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">肥猫趣记</span></a><a class="nav-page-title" href="/"><span class="site-name">OCS网课助手</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OCS网课助手</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-10T01:08:39.708Z" title="发表于 2024-12-10 09:08:39">2024-12-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-10T02:30:39.938Z" title="更新于 2024-12-10 10:30:39">2024-12-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">434</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.ocsjs.com/">OCS网课助手</a>：专注于帮助大学生从网课中释放出来。让自己的时间把握在自己的手中。</p>
+</blockquote>
+<h3 id="安装脚本管理器（本人更喜欢脚本猫一些，页面简洁）"><a href="#安装脚本管理器（本人更喜欢脚本猫一些，页面简洁）" class="headerlink" title="安装脚本管理器（本人更喜欢脚本猫一些，页面简洁）"></a>安装脚本管理器（本人更喜欢脚本猫一些，页面简洁）</h3><ul>
+<li>脚本猫：<a target="_blank" rel="noopener" href="https://docs.scriptcat.org/">https://docs.scriptcat.org</a></li>
+<li>Tampermonkey：<a target="_blank" rel="noopener" href="https://www.tampermonkey.net/">https://www.tampermonkey.net/</a></li>
+</ul>
+<h3 id="脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似）"><a href="#脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似）" class="headerlink" title="脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似）"></a><a target="_blank" rel="noopener" href="https://docs.scriptcat.org/">脚本猫</a>安装教程（这里以脚本猫为例，篡改猴过程类似）</h3><blockquote>
+<p>点击<strong>添加到Edge浏览器</strong>（如果没有Edge浏览器，可以点击右侧三角选择其他浏览器，步骤类似）</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/hMf2SlLJkgazUi8.png"></p>
+<blockquote>
+<p>点击<strong>获取</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/FmWAie8OoMxw9UQ.png"></p>
+<blockquote>
+<p>点击<strong>添加拓展</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/3RcLYX2eaUdbwGt.png"></p>
+<blockquote>
+<p>脚本猫<strong>安装完成</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/GL8npolgv1YV5cH.png"></p>
+<h3 id="安装OCS网课助手（以下方式任选其一）"><a href="#安装OCS网课助手（以下方式任选其一）" class="headerlink" title="安装OCS网课助手（以下方式任选其一）"></a>安装OCS网课助手（以下方式任选其一）</h3><blockquote>
+<p>（安装按钮点击一次即可，成功后没有提示信息）</p>
+</blockquote>
+<blockquote>
+<p><strong>方式一：</strong>进入<a target="_blank" rel="noopener" href="https://scriptcat.org/script-show-page/367">脚本猫脚本站</a>，点击<strong>安装脚本</strong>—<strong>安装</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/jQfNZKUcqR4kpdz.png"></p>
+<p><img src="https://s2.loli.net/2024/12/10/OmBy7AcfUNJgSId.png"></p>
+<blockquote>
+<p><strong>方式二：</strong>进入<a target="_blank" rel="noopener" href="https://cdn.ocsjs.com/ocs.user.js">官方安装链接</a>，点击<strong>安装</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/QtedrOfSmI9oHCc.png"></p>
+<h3 id="查看OCS网课助手是否安装成功"><a href="#查看OCS网课助手是否安装成功" class="headerlink" title="查看OCS网课助手是否安装成功"></a>查看OCS网课助手是否安装成功</h3><blockquote>
+<p>点击<strong>拓展</strong>，<strong>右键</strong>点击<strong>脚本猫</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/eD5ZrAxBwGVlUvJ.png" alt="202412100938014.png"></p>
+<blockquote>
+<p>点击<strong>home</strong>到脚本猫主页</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/48xUykfzHoK6lQC.png"></p>
+<blockquote>
+<p>查看OCS脚本是否安装成功</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/9wf7HT21ykg3QFA.png"></p>
+<h3 id="OCS网课助手使用教程"><a href="#OCS网课助手使用教程" class="headerlink" title="OCS网课助手使用教程"></a>OCS网课助手使用教程</h3><blockquote>
+<p>进入学习通网页，脚本会自动运行。<strong>进入具体课程页面</strong>才会开始执行脚本。<br>点击<strong>超星学习通</strong>—<strong>课程学习</strong>，里面是一些自动完成任务点的设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/Um2bvonYyjqBRTw.png"></p>
+<blockquote>
+<p>点击<strong>超星学习通</strong>—<strong>自动阅读</strong>，里面是可以增加阅读时长的脚本，可以增加平时分</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/67kKZyqWoFwPUnz.png"></p>
+<blockquote>
+<p>点击<strong>通用</strong>—<strong>全局设置</strong>，里面主要是答题的一些选项设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/kfMHTdgwyhNBrvu.png"></p>
+<h3 id="题库配置说明"><a href="#题库配置说明" class="headerlink" title="题库配置说明"></a>题库配置说明</h3><blockquote>
+<p>肥猫在使用的官方题库配置的<a target="_blank" rel="noopener" href="https://tk.enncy.cn/">言溪题库</a>，不过次数是需要购买的。非小白人员可以自行配置题库，具体请查看<a target="_blank" rel="noopener" href="https://docs.ocsjs.com/docs/quickly-start">OCS网课助手官方文档</a></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/12/10/H5ZiIQqDNjkUp92.png"></p>
+<p><img src="https://s2.loli.net/2024/12/10/lzwF74YfUvmogjH.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://qm.qq.com/q/yc5ls14t7G">肥猫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://feimao-g.github.io/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/">https://feimao-g.github.io/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://feimao-g.github.io" target="_blank">肥猫趣记</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期"><img class="cover" src="https://s2.loli.net/2024/12/02/o7dHSY9X5cuZa6k.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Windows升级后悔期</div></div><div class="info-2"><div class="info-item-1"> Windows 系统在发布升级版本后，为用户贴心的设定了一个 “后悔期”。在早期，这个期限长达三十天，不过现在已调整为十天。在这一期间内，如果因系统升级引发了某些故障，又或者用户单纯对新系统的使用体验不满意，都能够便捷地回退到之前的系统版本。但需留意的是，一旦超出十天的时间界限，系统便会自动清理 C 盘根目录下的 Windows.old 和 $Windows.~WS 文件夹，而这一操作将直接致使回退功能无法再被启用。 肥猫近期把系统从 Win10 升级到了 Win11，截至目前尚未遇到任何问题。然而，肥猫觉得十天的试用期限稍显短促，期望能有更充裕的时间来 “试用” 新系统，同时又担心系统自动删除旧文件而导致无法回退。于是，肥猫仔细查阅了 Microsoft 官方文档，成功找到了诸如查询试用期限、修改试用期限、回退上一版本以及卸载回退等一系列实用方法。撰写此篇博客，一来是便于自己日后随时查阅回顾，二来也是希望这篇博客能够对其他有相同困扰的 “有缘人”...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FeiMao</div><div class="author-info-description">一只很懒的肥猫</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://qm.qq.com/q/yc5ls14t7G"><i class="fab fa-qq"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">嘿！欢迎来到肥猫的奇妙博客世界，我是肥猫，这里是我的地盘。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%88%E6%9C%AC%E4%BA%BA%E6%9B%B4%E5%96%9C%E6%AC%A2%E8%84%9A%E6%9C%AC%E7%8C%AB%E4%B8%80%E4%BA%9B%EF%BC%8C%E9%A1%B5%E9%9D%A2%E7%AE%80%E6%B4%81%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">安装脚本管理器（本人更喜欢脚本猫一些，页面简洁）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%8C%AB%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%88%E8%BF%99%E9%87%8C%E4%BB%A5%E8%84%9A%E6%9C%AC%E7%8C%AB%E4%B8%BA%E4%BE%8B%EF%BC%8C%E7%AF%A1%E6%94%B9%E7%8C%B4%E8%BF%87%E7%A8%8B%E7%B1%BB%E4%BC%BC%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">脚本猫安装教程（这里以脚本猫为例，篡改猴过程类似）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B%EF%BC%88%E4%BB%A5%E4%B8%8B%E6%96%B9%E5%BC%8F%E4%BB%BB%E9%80%89%E5%85%B6%E4%B8%80%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">安装OCS网课助手（以下方式任选其一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BOCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">4.</span> <span class="toc-text">查看OCS网课助手是否安装成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">OCS网课助手使用教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E5%BA%93%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-number">6.</span> <span class="toc-text">题库配置说明</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手"><img src="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OCS网课助手"/></a><div class="content"><a class="title" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手">OCS网课助手</a><time datetime="2024-12-10T02:30:39.938Z" title="更新于 2024-12-10 10:30:39">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床"><img src="https://s2.loli.net/2024/12/02/YXbuHqtjSD1WrzC.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用GitHub和PicGo搭建图床"/></a><div class="content"><a class="title" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床">利用GitHub和PicGo搭建图床</a><time datetime="2024-12-02T08:58:37.819Z" title="更新于 2024-12-02 16:58:37">2024-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期"><img src="https://s2.loli.net/2024/12/02/o7dHSY9X5cuZa6k.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows升级后悔期"/></a><div class="content"><a class="title" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期">Windows升级后悔期</a><time datetime="2024-12-02T08:43:19.491Z" title="更新于 2024-12-02 16:43:19">2024-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/15/Welcome/" title="跟着我，开启欢笑满溢的生活博客之旅"><img src="https://s2.loli.net/2024/12/02/pnYkP2Ob1l8VuNR.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="跟着我，开启欢笑满溢的生活博客之旅"/></a><div class="content"><a class="title" href="/2024/11/15/Welcome/" title="跟着我，开启欢笑满溢的生活博客之旅">跟着我，开启欢笑满溢的生活博客之旅</a><time datetime="2024-12-02T08:43:15.992Z" title="更新于 2024-12-02 16:43:15">2024-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点"><img src="https://s2.loli.net/2024/12/02/id3wOQFBzyUcDgN.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于cloudflare pages搭建免费VLESS节点"/></a><div class="content"><a class="title" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点">基于cloudflare pages搭建免费VLESS节点</a><time datetime="2024-12-02T08:43:06.830Z" title="更新于 2024-12-02 16:43:06">2024-12-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png);"><div id="footer-wrap"><div class="copyright">&copy;2024 By FeiMao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
