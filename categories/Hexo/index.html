@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分类: Hexo | 肥猫趣记</title><meta name="author" content="FeiMao"><meta name="copyright" content="FeiMao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="肥猫趣记">
+<meta property="og:url" content="https://feimao-g.github.io/categories/Hexo/index.html">
+<meta property="og:site_name" content="肥猫趣记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png">
+<meta property="article:author" content="FeiMao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png"><link rel="shortcut icon" href="https://s2.loli.net/2024/11/19/PLI2iAMYZXw7J69.png"><link rel="canonical" href="https://feimao-g.github.io/categories/Hexo/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分类: Hexo',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(img/img02.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">肥猫趣记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Hexo</h1></div></header><main class="layout" id="content-inner"><div id="category"><div class="article-sort-title">分类 - Hexo</div><div class="article-sort"><div class="article-sort-item year">2024</div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手"><img src="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png" alt="OCS网课助手" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-12-10T01:08:39.708Z" title="发表于 2024-12-10 09:08:39">2024-12-10</time></div><a class="article-sort-item-title" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手">OCS网课助手</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期"><img src="https://s2.loli.net/2024/12/02/o7dHSY9X5cuZa6k.png" alt="Windows升级后悔期" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-22T06:17:04.710Z" title="发表于 2024-11-22 14:17:04">2024-11-22</time></div><a class="article-sort-item-title" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期">Windows升级后悔期</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点"><img src="https://s2.loli.net/2024/12/02/id3wOQFBzyUcDgN.png" alt="基于cloudflare pages搭建免费VLESS节点" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-16T17:30:30.840Z" title="发表于 2024-11-17 01:30:30">2024-11-17</time></div><a class="article-sort-item-title" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点">基于cloudflare pages搭建免费VLESS节点</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床"><img src="https://s2.loli.net/2024/12/02/YXbuHqtjSD1WrzC.png" alt="利用GitHub和PicGo搭建图床" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-16T03:08:50.390Z" title="发表于 2024-11-16 11:08:50">2024-11-16</time></div><a class="article-sort-item-title" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床">利用GitHub和PicGo搭建图床</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/11/15/Welcome/" title="跟着我，开启欢笑满溢的生活博客之旅"><img src="https://s2.loli.net/2024/12/02/pnYkP2Ob1l8VuNR.png" alt="跟着我，开启欢笑满溢的生活博客之旅" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-15T01:53:00.420Z" title="发表于 2024-11-15 09:53:00">2024-11-15</time></div><a class="article-sort-item-title" href="/2024/11/15/Welcome/" title="跟着我，开启欢笑满溢的生活博客之旅">跟着我，开启欢笑满溢的生活博客之旅</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2024/11/13/hello-world/" title="Hello World"><img src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="Hello World" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-13T13:06:22.070Z" title="发表于 2024-11-13 21:06:22">2024-11-13</time></div><a class="article-sort-item-title" href="/2024/11/13/hello-world/" title="Hello World">Hello World</a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s2.loli.net/2024/11/19/V3ZSEIBgTRUubQy.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FeiMao</div><div class="author-info-description">一只很懒的肥猫</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://qm.qq.com/q/yc5ls14t7G"><i class="fab fa-qq"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">嘿！欢迎来到肥猫的奇妙博客世界，我是肥猫，这里是我的地盘。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床"><img src="https://s2.loli.net/2024/12/02/YXbuHqtjSD1WrzC.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用GitHub和PicGo搭建图床"/></a><div class="content"><a class="title" href="/2024/11/16/%E5%88%A9%E7%94%A8GitHub%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="利用GitHub和PicGo搭建图床">利用GitHub和PicGo搭建图床</a><time datetime="2024-12-22T13:09:41.796Z" title="更新于 2024-12-22 21:09:41">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点"><img src="https://s2.loli.net/2024/12/02/id3wOQFBzyUcDgN.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于cloudflare pages搭建免费VLESS节点"/></a><div class="content"><a class="title" href="/2024/11/17/%E5%9F%BA%E4%BA%8Ecloudflare%20pages%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9VLESS%E8%8A%82%E7%82%B9/" title="基于cloudflare pages搭建免费VLESS节点">基于cloudflare pages搭建免费VLESS节点</a><time datetime="2024-12-22T13:09:34.351Z" title="更新于 2024-12-22 21:09:34">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期"><img src="https://s2.loli.net/2024/12/02/o7dHSY9X5cuZa6k.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows升级后悔期"/></a><div class="content"><a class="title" href="/2024/11/22/Windows%E5%8D%87%E7%BA%A7%E5%90%8E%E6%82%94%E6%9C%9F/" title="Windows升级后悔期">Windows升级后悔期</a><time datetime="2024-12-22T13:09:27.330Z" title="更新于 2024-12-22 21:09:27">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手"><img src="https://s2.loli.net/2024/12/10/MCvBOe9ka3tWIXm.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OCS网课助手"/></a><div class="content"><a class="title" href="/2024/12/10/OCS%E7%BD%91%E8%AF%BE%E5%8A%A9%E6%89%8B/" title="OCS网课助手">OCS网课助手</a><time datetime="2024-12-22T13:09:20.468Z" title="更新于 2024-12-22 21:09:20">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/13/hello-world/" title="Hello World"><img src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/11/13/hello-world/" title="Hello World">Hello World</a><time datetime="2024-12-22T13:09:12.112Z" title="更新于 2024-12-22 21:09:12">2024-12-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">6</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">5</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">6</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">2.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-22T13:10:47.157Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(img/img02.png);"><div id="footer-wrap"><div class="copyright">&copy;2024 By FeiMao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
